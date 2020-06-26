@@ -5,21 +5,45 @@
     <div class="col-xs-12 col-sm-4 col--leading">
         <div id="product-carousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner" role="listbox">
-                @for (var i = 0; i < Model.Images.Count; i++)
-                {
-                    <div class="item" data-slide-number="@i">
-                        <img src="@Model.Images.ElementAt(i)" alt="@Model.Product.Code" />
-                    </div>
+                @{
+                    var i = 0;
+                    for (i = 0; i < Model.Images.Count; i++)
+                    {
+                        <div class="item" data-slide-number="@i">
+                            <img src="@Model.Images.ElementAt(i)" alt="@Model.Product.Code" />
+                        </div>
+                    }
+
+                    for (var j = 0; j < Model.Videos.Count; j++)
+                    {
+                        <div class="item" data-slide-number="@i">
+                            @Html.Raw(@Model.Videos.ElementAt(j).Embed)
+                        </div>
+                        i++;
+                    }
+
                 }
             </div>
         </div>
         <div class="row" id="carousel-thumbs">
             <ul class="carousel-thumbs js-carousel-thumbs">
-                @for (var i = 0; i < Model.Images.Count; i++)
-                {
-                    <li class="col-xs-3">
-                        <a href="#" class="thumbnail js-thumbnail" id="@i"><img src="@Model.Images.ElementAt(i)" /></a>
-                    </li>
+                @{
+                    i = 0;
+                    for (i = 0; i < Model.Images.Count; i++)
+                    {
+                        <li class="col-xs-3">
+                            <a href="#" class="thumbnail js-thumbnail" id="@i"><img src="@Model.Images.ElementAt(i)" /></a>
+                        </li>
+                    }
+
+                    for (var j = 0; j < Model.Videos.Count; j++)
+                    {
+                        <li class="col-xs-3">
+                            <a href="#" class="thumbnail js-thumbnail" id="@i"><img src="@Model.Videos.ElementAt(j).ThumbnailUrl" /></a>
+                        </li>
+                        i++;
+                    }
+
                 }
             </ul>
         </div>

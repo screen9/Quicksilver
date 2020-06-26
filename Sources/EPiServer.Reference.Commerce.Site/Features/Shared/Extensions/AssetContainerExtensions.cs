@@ -38,6 +38,18 @@ namespace EPiServer.Reference.Commerce.Site.Features.Shared.Extensions
             return assets;
         }
 
+        public static IList<TContentMedia> GetMedias<TContentMedia>(this IAssetContainer assetContainer, IContentLoader contentLoader, UrlResolver urlResolver)
+            where TContentMedia : IContentMedia
+        {
+            var assets = new List<TContentMedia>();
+            if (assetContainer.CommerceMediaCollection != null)
+            {
+                assets.AddRange(assetContainer.CommerceMediaCollection.Where(x => ValidateCorrectType<TContentMedia>(x.AssetLink, contentLoader)).Select(media => contentLoader.Get<TContentMedia>(media.AssetLink)));
+            }
+
+            return assets;
+        }
+
         private static bool ValidateCorrectType<TContentMedia>(ContentReference contentLink, IContentLoader contentLoader)
             where TContentMedia : IContentMedia
         {

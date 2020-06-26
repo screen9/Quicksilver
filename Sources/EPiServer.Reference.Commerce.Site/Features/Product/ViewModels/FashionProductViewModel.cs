@@ -1,5 +1,6 @@
 ﻿using EPiServer.Reference.Commerce.Site.Features.Product.Models;
 using EPiServer.Reference.Commerce.Site.Features.Recommendations.ViewModels;
+using EPiServer.Reference.Commerce.Site.Models.Media;
 using Mediachase.Commerce;
 using System.Collections.Generic;
 using System.Web.Mvc;
@@ -17,5 +18,6 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.ViewModels
         public string Color { get; set; }
         public string Size { get; set; }
         public bool IsAvailable { get; set; }
+        public IList<Screen9Media> Videos { get; set; }
     }
 }

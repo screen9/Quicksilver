@@ -3,6 +3,7 @@ using EPiServer.Reference.Commerce.Site.Features.Product.Models;
 using EPiServer.Reference.Commerce.Site.Features.Product.ViewModels;
 using EPiServer.Reference.Commerce.Site.Features.Shared.Extensions;
 using EPiServer.Reference.Commerce.Site.Features.Shared.Services;
+using EPiServer.Reference.Commerce.Site.Models.Media;
 using EPiServer.ServiceLocation;
 using EPiServer.Web.Routing;
 using Mediachase.Commerce;
@@ -79,6 +80,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.ViewModelFactories
                 Color = variant.Color,
                 Size = variant.Size,
                 Images = variant.GetAssets<IContentImage>(_contentLoader, _urlResolver),
+                Videos = variant.GetMedias<Screen9Media>(_contentLoader, _urlResolver),
                 IsAvailable = defaultPrice != null
             };
         }
