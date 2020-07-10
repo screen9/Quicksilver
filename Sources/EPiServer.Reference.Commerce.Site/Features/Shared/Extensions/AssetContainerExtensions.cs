@@ -38,7 +38,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Shared.Extensions
             return assets;
         }
 
-        public static IList<TContentMedia> GetMedias<TContentMedia>(this IAssetContainer assetContainer, IContentLoader contentLoader, UrlResolver urlResolver)
+        public static IList<TContentMedia> GetVideos<TContentMedia>(this IAssetContainer assetContainer, IContentLoader contentLoader, UrlResolver urlResolver)
             where TContentMedia : IContentMedia
         {
             var assets = new List<TContentMedia>();

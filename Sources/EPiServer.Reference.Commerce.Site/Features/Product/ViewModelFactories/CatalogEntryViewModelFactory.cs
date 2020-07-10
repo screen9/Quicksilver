@@ -80,7 +80,7 @@ namespace EPiServer.Reference.Commerce.Site.Features.Product.ViewModelFactories
                 Color = variant.Color,
                 Size = variant.Size,
                 Images = variant.GetAssets<IContentImage>(_contentLoader, _urlResolver),
-                Videos = variant.GetMedias<Screen9Media>(_contentLoader, _urlResolver),
+                Videos = variant.GetVideos<Screen9Media>(_contentLoader, _urlResolver),
                 IsAvailable = defaultPrice != null
             };
         }
